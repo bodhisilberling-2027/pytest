@@ -192,7 +192,8 @@ class KeywordMatcher:
         if function_obj:
             mapped_names.update(function_obj.__dict__)
 
-        # Add the markers to the keywords as we no longer handle them correctly.
+        # Add the markers to the keywords for backward compatibility with the -k option.
+        # This allows users to match marker names using -k (e.g., -k 'slow').
         mapped_names.update(mark.name for mark in item.iter_markers())
 
         return cls(mapped_names)
