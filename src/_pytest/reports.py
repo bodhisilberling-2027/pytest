@@ -516,12 +516,9 @@ class CollectErrorRepr(TerminalRepr):
 def pytest_report_to_serializable(
     report: CollectReport | TestReport,
 ) -> dict[str, Any] | None:
-    if isinstance(report, TestReport | CollectReport):
-        data = report._to_json()
-        data["$report_type"] = report.__class__.__name__
-        return data
-    # TODO: Check if this is actually reachable.
-    return None  # type: ignore[unreachable]
+    data = report._to_json()
+    data["$report_type"] = report.__class__.__name__
+    return data
 
 
 def pytest_report_from_serializable(
