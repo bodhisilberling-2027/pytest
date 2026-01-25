@@ -53,7 +53,7 @@ To type fixtures in pytest, just add normal types to the fixture functions -- th
     def sample_fixture() -> int:
         return 38
 
-In the same manner, the fixtures passed to test functions need be annotated with the fixture's return type:
+In the same manner, the fixtures passed to test functions need to be annotated with the fixture's return type:
 
 .. code-block:: python
 
